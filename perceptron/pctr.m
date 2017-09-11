@@ -2,7 +2,7 @@ function wajustado = pctr(tabela, w, epoca, d, aprendizagem, qtd_linhas)
 while 1
     erro = 'F';
     for i = 1:qtd_linhas
-        u = (w(1)*tabela(i,1) +  w(2)*tabela(i,2) + w(3)*tabela(i,3) + w(4)*tabela(i,4));
+        u = (w(1)*tabela(i,1) + w(2)*tabela(i,2) + w(3)*tabela(i,3) + w(4)*tabela(i,4));
         y = sinal(u);
         if y ~= d(i)
             w(1) = w(1) + aprendizagem * (d(i) - y) * tabela(i, 1);
