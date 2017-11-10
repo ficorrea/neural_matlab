@@ -16,4 +16,4 @@ end
 
 x_train = [bias data_treino];
 x_valido = [bias(1:qtd_linhas_valido, :) data_valido(:, 1:3)];
-
+y_valido_original = data_valido(:, 4);

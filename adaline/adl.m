@@ -18,8 +18,8 @@ while 1
     end    
 end
 fprintf('Epocas: %i\n', epoca);
-fprintf('W_ajustado: %0.4f\t%0.4f\t%0.4f\n', w(2:4)); %disp(w(2:4));
-fprintf('Theta: %0.4f\n', w(1)); %disp(w(1));
+fprintf('W_ajustado: %0.4f\t%0.4f\t%0.4f\n', w(2:4));
+fprintf('Theta: %0.4f\n', w(1));
 w_ajustado = w;
 end
     
