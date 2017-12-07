@@ -1,0 +1,16 @@
+clear all
+
+x = 0 : 0.01 : 2*pi;
+y = sin(x)./x;
+%plot(x,y);
+
+%y_fis = readfis('mysugeno.fis');
+%w = evalfis(x, y_fis);
+
+x = linspace(-10, 10, 200);
+for i = 1 : size(x,2)
+    [ z(i) ] = takagi_sugeno_1(x(i));
+end
+plot(x,z)
+xlabel('X'); ylabel('Z');
+title('Saida do Sistema Fuzzy tipo Takagi-Sugeno');

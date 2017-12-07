@@ -1,0 +1,33 @@
+[System]
+Name='mandaniPlot'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[0 6.28318530717959]
+NumMFs=3
+MF1='pequeno':'gaussmf',[0.161 0.0310963855421684]
+MF2='medio':'gaussmf',[0.576891600052863 4.79]
+MF3='grande':'gaussmf',[0.626923134858583 6.22]
+
+[Output1]
+Name='output1'
+Range=[-0.2172 1]
+NumMFs=3
+MF1='pequeno':'gaussmf',[0.0943 -0.3651140562249]
+MF2='medio':'gaussmf',[0.0803 0.034225702811245]
+MF3='grande':'gaussmf',[0.00991 1.00343935742972]
+
+[Rules]
+1, 3 (1) : 1
+3, 2 (1) : 1
+2, 1 (1) : 1
