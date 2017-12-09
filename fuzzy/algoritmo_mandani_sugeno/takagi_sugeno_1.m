@@ -14,23 +14,28 @@ function [ z ] = takagi_sugeno_1(x)
 % Implementado em MATLAB ver. R2016a
 %
 % Parametros das funcoes de pertinencia dos antecedentes
-A1 = [1.5085 0.2690]; % pequeno
-A2 = [1.2700 3.9867]; % medio
-A3 = [0.5790 7.2410]; % grande
+A1 = [1.315 1.6]; % pequeno
+A2 = [0.89 3.146]; % medio
+A3 = [1 4.342]; % meioalto
+A4 = [0.3764 6.63]; %alto
 % Fuzzyficacao
 pA1 = gaussmf(x, A1); % pertinencia na funcao A1
 pA2 = gaussmf(x, A2); % pertinencia na funcao A2
 pA3 = gaussmf(x, A3); % pertinencia na funcao A3
+pA4 = gaussmf(x, A4); %pertinencia na funcao A4
 % Calculo das regras fuzzy (operador produto)
-% regra 1: Se X eh pequeno entao Z eh z1
+% regra 1: Se X eh pequeno entao Z eh alto
 w1 = pA1; % forca de disparo da regra 1
-z1 = 0.1*x + 6.4; % funcao linear do consequente 1
-% regra 2: Se X eh medio entao Z eh z2
+z1 = 1; % constante do consequente 1
+% regra 2: Se X eh medio entao Z eh zero
 w2 = pA2; % forca de disparo da regra 2
-z2 = -0.5*x + 4; % funcao linear do consequente 2
-% regra 3: Se X eh grande entao Z eh z3
+z2 = 0; % constante do consequente 2
+% regra 3: Se X eh meioalto entao Z eh negativo
 w3 = pA3; % forca de disparo da regra 3
-z3 = x - 2; % funcao linear do consequente 3
+z3 = -0.2172; % constante do consequente 3
+% regra 4: Se X eh alto entao Z eh zero
+w4 = pA4;
+z4 = 0;
 % Defuzzyficacao
-z = (w1*z1 + w2*z2 + w3*z3) / (w1 + w2 + w3); % saida
+z = (w1*z1 + w2*z2 + w3*z3 + w4*z4) / (w1 + w2 + w3 + w4); % saida
 
